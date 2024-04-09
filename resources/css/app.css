@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.post-container {
+    background-color: white;
+    border: solid black 2px;
+    margin: 20px;
+}
+
+.post {
+    color: black;
+}
+
+.post-title {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+
