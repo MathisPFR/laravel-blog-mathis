@@ -3,6 +3,8 @@
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,5 +24,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+Route::middleware('auth')->group(function () {
+Route::get('/dashboard/allposts', PostController::class .'@index')->name('posts.index');
+Route::get('/dashboard/create', PostController::class . '@create')->name('posts.create');
+Route::post('/dashboard', PostController::class .'@store')->name('posts.store');
+Route::get('/dashboard/{post}/edit', PostController::class .'@edit')->name('posts.edit');
+Route::put('/dashboard/{post}', PostController::class .'@update')->name('posts.update');
+Route::delete('/dashboard/{post}', PostController::class .'@destroy')->name('posts.destroy');
+});
+
 
 require __DIR__.'/auth.php';
