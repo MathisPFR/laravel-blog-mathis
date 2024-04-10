@@ -57,9 +57,57 @@ label {
     color: black;
     padding: 3px;
     border-radius: 5px;
+    font-size: 1em;
+    height: 30px;
 }
 
 .container-form {
     display: flex;
     justify-content: space-evenly;
 }
+
+
+/* POST CARD */
+
+.all-card {
+    background-color: #1F2937;
+    padding: 20px;
+    margin: 30px;
+    color: white;
+}
+
+.card-footer {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: solid 1px #364050;
+    margin-bottom: 10px;
+}
+
+.card-content {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.card-description {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+
+
+/* ADD BTN  */
+
+.btn-add-post {
+    margin: 30px;
+    font-size: 1.5em;
+    text-align: end;
+}
+
+

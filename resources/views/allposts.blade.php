@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,42 +20,57 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
       </div>
     </div>
   </nav>
-  <div class="container mt-5">
-    <div class="row">
-      @foreach ($posts as $post)
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-header">
-              <a href="{{ route('posts.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
-            </div>
-            <div class="card-body">
-            <p class="card-text">{{ $post->contenu }}</p>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{ $post->description }}</p>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-sm">
-                  <a href="{{ route('posts.edit', $post->id) }}"
-            class="btn btn-primary btn-sm">Edit</a>
-                </div>
-                <div class="col-sm">
-                    <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
+
 </body>
-</html>
+</html> --}}
+
+<x-app-layout>
+  <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+          {{ __('Dashboard') }}
+      </h2>
+  </x-slot>
+
+  <div class="btn-add-post">
+    <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>
+  </div>
+
+                    @foreach ($posts as $post)
+                      <div class="all-card">
+
+
+                       <div class="card">
+                          <div class="card-header">
+                            <a href="{{ route('posts.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
+                          </div>
+                          <div class="card-content">
+                          <p class="card-text">{{ $post->contenu }}</p>
+                          </div>
+                          <div class="card-description">
+                              <p class="card-text">{{ $post->description }}</p>
+                          </div>
+                          <div class="card-footer">
+                              <div class="btn-edit btn">
+                                <a href="{{ route('posts.edit', $post->id) }}"
+                                class="btn">Edit</a>
+                              </div>
+                           
+                              
+                                  <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn">Delete</button>
+                                  </form>
+                          </div> 
+                        </div>
+                      </div>
+                    @endforeach 
+        
+</x-app-layout>
+
+
+
+
 
 
 
