@@ -18,4 +18,48 @@
     font-weight: bold;
 }
 
+.link-show-unique-post {
+    text-decoration: none;
+}
 
+/* .post-content {
+    color: ;
+} */
+
+.post-des {
+    font-style: italic;
+}
+
+
+
+/* ALL FORM */
+
+
+.form-group {
+    color: black;
+    /* width: 30%; */
+}
+
+.form-control {
+    width: 300px;
+}
+
+.form-area {
+    height: 400px;
+}
+
+label {
+    color: white;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.container-form {
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -25,10 +25,10 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
         <div class="col-sm">
           <div class="card">
             <div class="card-header">
-              <h5 class="card-title">{{ $post->title }}</h5>
+              <a href="{{ route('posts.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
             </div>
             <div class="card-body">
-              <p class="card-text">{{ $post->contenu }}</p>
+            <p class="card-text">{{ $post->contenu }}</p>
             </div>
             <div class="card-body">
                 <p class="card-text">{{ $post->description }}</p>

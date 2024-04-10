@@ -34,6 +34,7 @@ Route::post('/dashboard', PostController::class .'@store')->name('posts.store');
 Route::get('/dashboard/{post}/edit', PostController::class .'@edit')->name('posts.edit');
 Route::put('/dashboard/{post}', PostController::class .'@update')->name('posts.update');
 Route::delete('/dashboard/{post}', PostController::class .'@destroy')->name('posts.destroy');
+Route::get('/dashboard/{post}', PostController::class .'@show')->name('posts.show');
 });
 
 
