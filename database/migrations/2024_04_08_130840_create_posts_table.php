@@ -17,8 +17,11 @@ return new class extends Migration
             $table->text('description');
             $table->text('contenu');
             $table->timestamps();
+            $table->foreignId('user_id')->default()->constrained();
         });
+        
     }
+
 
     /**
      * Reverse the migrations.

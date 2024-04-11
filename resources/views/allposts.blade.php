@@ -49,6 +49,9 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
                           <div class="card-description">
                               <p class="card-text">{{ $post->description }}</p>
                           </div>
+                          <div class="card-description">
+                            <p class="card-text">{{ $post->author->name }}</p>
+                        </div>
                           <div class="card-footer">
                               <div class="btn-edit btn">
                                 <a href="{{ route('posts.edit', $post->id) }}"

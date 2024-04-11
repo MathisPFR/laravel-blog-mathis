@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -18,7 +19,10 @@ class PostController extends Controller
     public function index()
 
     {
-    $posts = Post::all();
+        $user = User::find(Auth::id());
+        $posts = $user->posts()->get();
+
+    //$posts = Post::all();
     return view('allposts', compact('posts'));
     }
     
@@ -29,7 +33,16 @@ class PostController extends Controller
         'contenu' => 'required',
         'description' => 'required',
     ]);
-    Post::create($request->all());
+    
+    Post::create([
+        "title"=> $request->title,
+        "description"=> $request->description,
+        "contenu"=> $request->contenu,
+        "user_id"=> Auth::id(),
+    ]);
+    
+    //Auth::user()->posts()->create($request->all());
+
     return redirect()->route('posts.index')
         ->with('success', 'Post created successfully.');
     }
