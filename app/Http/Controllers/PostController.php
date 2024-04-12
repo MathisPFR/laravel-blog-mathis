@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -32,14 +33,23 @@ class PostController extends Controller
         'title' => 'required|max:255',
         'contenu' => 'required',
         'description' => 'required',
+        'categorie'=> 'required',
     ]);
     
-    Post::create([
+    $postTest = Post::create([
         "title"=> $request->title,
         "description"=> $request->description,
         "contenu"=> $request->contenu,
         "user_id"=> Auth::id(),
     ]);
+
+    foreach($request->categories as $category) {
+        $postTest->categorie()->attach($category);
+    }
+
+
+  
+    // $postTest->categorie()->attach($request->id);
     
     //Auth::user()->posts()->create($request->all());
 
@@ -71,7 +81,10 @@ class PostController extends Controller
    
     public function create()
     {
-    return view('create');
+        $categories = Category::all();
+    return view('create', [
+        'categories' => $categories,
+    ]);
     }
    
     public function show($id)
