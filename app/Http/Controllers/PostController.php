@@ -16,6 +16,7 @@ use App\Models\Category;
 
 class PostController extends Controller
 {
+   
 
     public function index()
 
@@ -33,19 +34,20 @@ class PostController extends Controller
         'title' => 'required|max:255',
         'contenu' => 'required',
         'description' => 'required',
-        'categorie'=> 'required',
+        'categorie'=> '',
     ]);
     
-    $postTest = Post::create([
+    $post = Post::create([
         "title"=> $request->title,
         "description"=> $request->description,
         "contenu"=> $request->contenu,
         "user_id"=> Auth::id(),
     ]);
 
-    foreach($request->categories as $category) {
-        $postTest->categorie()->attach($category);
-    }
+    // foreach($request->categories as $category) {
+         $categories = $request->categories;
+        $post->categorie()->attach($categories);
+    
 
 
   

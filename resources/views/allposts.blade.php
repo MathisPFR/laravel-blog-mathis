@@ -34,11 +34,15 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
   <div class="btn-add-post">
     <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>
   </div>
+ 
+  {{-- @foreach ($posts->$categories as $categorie)
+                        <div class="card-description">
+                          <p class="card-text">{{ $categorie->title }}</p>
+                        </div>
+  @endforeach --}}
 
                     @foreach ($posts as $post)
                       <div class="all-card">
-
-
                        <div class="card">
                           <div class="card-header">
                             <a href="{{ route('posts.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
@@ -50,8 +54,13 @@ integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6
                               <p class="card-text">{{ $post->description }}</p>
                           </div>
                           <div class="card-description">
-                            <p class="card-text">{{ $post->author->name }}</p>
-                        </div>
+                            <p class="card-text">User : {{ $post->author->name }}</p>
+                          </div>
+                        @foreach($post->categorie as $cat)
+                          <div class="card-description">
+                            <p class="card-text">Category : {{ $cat->title }}</p>
+                          </div>
+                        @endforeach
                           <div class="card-footer">
                               <div class="btn-edit btn">
                                 <a href="{{ route('posts.edit', $post->id) }}"

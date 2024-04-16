@@ -40,15 +40,16 @@
                               </div>
                               <textarea class="form-control form-area" id="description" name="description" rows="3" required></textarea>
                           </div>
-                          @if($errors->any())
+                          {{-- @if($errors->any())
                           {{ implode('',$errors->all('Veuillez remplir cette case')) }}
-                          @endif
+                          @endif --}}
                           @foreach ($categories as $categorie)
 
                           <div class="form-group">
                          
                             <input type="checkbox" id="categories" name="categories[]" value="{{ $categorie->id }}">
                             {{ $categorie->title }}
+                            
                             @endforeach
                           </div>
 
