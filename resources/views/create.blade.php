@@ -49,7 +49,6 @@
                          
                             <input type="checkbox" id="categories" name="categories[]" value="{{ $categorie->id }}">
                             {{ $categorie->title }}
-                            
                             @endforeach
                           </div>
 

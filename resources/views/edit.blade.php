@@ -38,6 +38,16 @@
                             </div>
                             <textarea class="form-control form-area" id="description" name="description" rows="3" required>{{ $post->description }}</textarea>
                         </div>
+
+                        @foreach ($categories as $cat)
+
+                          <div class="form-group">
+                         
+                            <input type="checkbox" id="categories" name="categories[]" value="{{ $cat->id }}">
+                            {{ $cat->title }}
+                            
+                            @endforeach
+
                       </div>
                         <button type="submit" class="btn mt-3 btn-primary">Update Post</button>
                       </form>

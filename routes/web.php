@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\EnsureUserHasRole;
 
 
 
@@ -39,8 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/post/{post}', PostController::class .'@show')->name('posts.show');
 });
 
-
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => EnsureUserHasRole::class], function () {
+// Route::middleware(['EnsureUserHasRole'])->group(function () {
+// Route::middleware('auth')->group(function () {
     Route::get('/dashboard/allcategories', CategoryController::class .'@index')->name('categories.index');
     Route::get('/dashboard/category/category-create', CategoryController::class . '@create')->name('categories.create');
     Route::post('/dashboard/category/category-create', CategoryController::class .'@store')->name('categories.store');

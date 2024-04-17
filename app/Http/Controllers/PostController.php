@@ -69,6 +69,8 @@ class PostController extends Controller
     ]);
     $post = Post::find($id);
     $post->update($request->all());
+    $post->categorie()->sync($request->categories);
+    
     return redirect()->route('posts.index')
         ->with('success', 'Post updated successfully.');
     }
@@ -98,6 +100,10 @@ class PostController extends Controller
     public function edit($id)
     {
     $post = Post::find($id);
-    return view('edit', compact('post'));
+    $categories = Category::all();
+    return view('edit', compact('post'), [
+        'categories' => $categories,
+    ]);
     }
+
 }

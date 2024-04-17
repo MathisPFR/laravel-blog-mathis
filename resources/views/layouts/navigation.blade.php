@@ -18,9 +18,15 @@
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                         {{ __('All Post') }}
                     </x-nav-link>
+
+                @if (Auth::user()->role === "admin")
+
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                         {{ __('All Categories') }}
                     </x-nav-link>
+
+                @endif
+
                 </div>
             </div>
 
