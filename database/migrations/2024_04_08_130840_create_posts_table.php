@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('contenu');
             $table->timestamps();
-            $table->foreignId('user_id')->default()->constrained();
+            $table->foreignId('user_id')->default()->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
         
     }

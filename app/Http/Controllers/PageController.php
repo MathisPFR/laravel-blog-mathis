@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Post;
+use App\Models\Category;
 
 class PageController extends Controller
 {
@@ -44,11 +45,34 @@ class PageController extends Controller
 
     public function welcome(): View
     {
+        $categories = Category::all();
         $post = Post::latest()->paginate(10);
         return view('welcome', [
             'posts' => $post,
+            'categories' => $categories,
+            
         ]);
 
+    }
+
+   
+    public function index(Request $request)  
+    {
+        $categories = Category::all();
+        $query = Post::query();
+
+        if(isset($request->categories) && ($request->categories != null))
+        {
+            $query->whereHas('categorie', function($q) use ($request) {
+                $q->whereIn('categories.id', $request->categories);
+            });
+        }
+
+        $posts = $query->get();
+        
+        return view('welcome', compact('posts', 'categories'));
+
+        
     }
 
 

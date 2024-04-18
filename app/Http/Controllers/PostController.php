@@ -27,6 +27,7 @@ class PostController extends Controller
     //$posts = Post::all();
     return view('allposts', compact('posts'));
     }
+
     
     public function store(Request $request)
     {
@@ -106,4 +107,7 @@ class PostController extends Controller
     ]);
     }
 
+
+
+    
 }
