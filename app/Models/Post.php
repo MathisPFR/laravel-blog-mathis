@@ -17,11 +17,16 @@ class Post extends Model
      *
      * @var array<int, string>
      */
+
+    protected $guarded = [];
+
+    
    protected $fillable = [
        'title',
        'contenu',
        'description',
        'user_id',
+       'image'
    ];
 
    public function author(): BelongsTo

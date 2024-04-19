@@ -36,14 +36,23 @@ class PostController extends Controller
         'contenu' => 'required',
         'description' => 'required',
         'categorie'=> '',
+        'image' => 'sometimes|image|max:5000',
     ]);
+
+    
+    // dd($request->image);
+    
+
     
     $post = Post::create([
         "title"=> $request->title,
         "description"=> $request->description,
         "contenu"=> $request->contenu,
         "user_id"=> Auth::id(),
+        
     ]);
+
+    $this->storeImage($post);
 
     // foreach($request->categories as $category) {
          $categories = $request->categories;
@@ -67,8 +76,16 @@ class PostController extends Controller
         'title' => 'required|max:255',
         'contenu' => 'required',
         'description' => 'required',
+        'image' => 'sometimes|image|max:5000',
+        
     ]);
+
+    
+
+
+
     $post = Post::find($id);
+    // $this->storeImage($post);
     $post->update($request->all());
     $post->categorie()->sync($request->categories);
     
@@ -108,6 +125,16 @@ class PostController extends Controller
     }
 
 
-
+    private function storeImage(Post $post)
+    {
+        if(request('image')) {
+            $res = request('image')->store('avatars', 'public');
+            $post->update([
+                'image' => $res
+            ]);
+            // dump($post);
+            // dd($res);
+        }
+    }
     
 }

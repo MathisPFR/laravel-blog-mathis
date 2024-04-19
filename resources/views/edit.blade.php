@@ -15,7 +15,7 @@
                   <div class="row h-100 justify-content-center align-items-center">
                     <div class="col-10 col-md-8 col-lg-6">
                       {{-- <h3>Update Post</h3> --}}
-                      <form action="{{ route('posts.update', $post->id) }}" method="post">
+                      <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                       <div class="container-form">
@@ -48,6 +48,7 @@
                             
                             @endforeach
 
+                            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
                       </div>
                         <button type="submit" class="btn mt-3 btn-primary">Update Post</button>
                       </form>

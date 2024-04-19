@@ -34,7 +34,7 @@
                       <div class="all-card">
                        <div class="card">
                           <div class="card-header">
-                            <a href="{{ route('posts.show', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
+                            <a href="{{ route('unique.post', $post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
                           </div>
                           <div class="card-content">
                           <p class="card-text">{{ $post->contenu }}</p>

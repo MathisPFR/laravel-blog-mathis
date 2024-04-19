@@ -18,7 +18,7 @@
                   <div class="row h-100 justify-content-center align-items-center">
                     <div class="col-10 col-md-8 col-lg-6">
                       {{-- <h3>Add a Post</h3> --}}
-                      <form action="{{ route('posts.store') }}" method="post">
+                      <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="container-form">
                           <div class="form-group">
@@ -54,7 +54,7 @@
 
                           <label for="">Catégories</label>
 
-
+                          <input type="file" id="" name="image" accept="image/png, image/jpeg" />
 
                           
                         </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\EnsureUserHasRole;
 
 Route::get('/', [PageController::class, 'index'])->name('welcome.pages');
+Route::get('/unique-post/{post}', [PageController::class, 'show'])->name('unique.post');
 
 
 Route::get('/legals', [PageController::class, 'legals'])->name('legals.pages');
