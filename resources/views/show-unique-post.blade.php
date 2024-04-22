@@ -23,7 +23,12 @@
                             {{ $post->description }}
                         </div>
                     </div>
-
+                    @if($post->image)
+                    <div>
+                       
+                        <img src="{{ asset('storage/'. $post->image) }}" alt="post-avatar">
+                    </div>
+                    @endif
 
 
 

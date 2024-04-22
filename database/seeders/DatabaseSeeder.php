@@ -17,16 +17,51 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        $this->call([
-            PostSeeder::class,
-        ]);
-        // User::factory(10)->create();
+        
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        //     'password' => bcrypt('test'),
-        // ]);
+        User::factory(3)->create();
+
+        User::factory()->create([
+            'name' => 'User Admin',
+            'email' => 'test@example.com',
+            'password' => bcrypt('test'),
+            'role' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'name' => 'User Simple',
+            'email' => 'user@exemple.com',
+            'password' => bcrypt('test'),
+            'role' => 'normal',
+        ]);
+
+        // post::factory(10)->create();
+
+        $this->call([
+            CategorySeeder::class,
+            UsersTableSeeder::class
+        ]);
+
+       $categories = Category::factory(4)->create();
+
+        Post::factory(20)->create()->each(function($posts) use ($categories) {
+            $posts->categorie()->attach($categories->random());
+               
+        });
 
     }
+
+
+        
+
+        
+        
+
+
+
+
+
+
+
 }
+

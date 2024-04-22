@@ -35,13 +35,13 @@
                                 <label for="">Admin</label>
                             </div>
                             <div>
-                              <input type="radio" id="" name="role" value="normal"  />
+                              <input type="radio" id="" name="role" class="" value="normal"  />
                               <label for="">Users</label>
                             </div>  
                           </div>
-                        
+                        </div>
                             
-                          <button type="submit" class="btn mt-3 btn-primary">Update Post</button>
+                          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn-create btn-margin">Update Post</button>
                         </form>
                       </div>
                     </div>

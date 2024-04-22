@@ -85,9 +85,10 @@ class PostController extends Controller
 
 
     $post = Post::find($id);
-    // $this->storeImage($post);
     $post->update($request->all());
     $post->categorie()->sync($request->categories);
+
+    $this->storeImage($post);
     
     return redirect()->route('posts.index')
         ->with('success', 'Post updated successfully.');

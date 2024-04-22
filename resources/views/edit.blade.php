@@ -39,18 +39,29 @@
                             <textarea class="form-control form-area" id="description" name="description" rows="3" required>{{ $post->description }}</textarea>
                         </div>
 
+
+                        <div class="form-group">
+                          <label class="categories-label">
+                            Categories :   
+                          </label>
+                        
+
                         @foreach ($categories as $cat)
 
-                          <div class="form-group">
-                         
                             <input type="checkbox" id="categories" name="categories[]" value="{{ $cat->id }}">
-                            {{ $cat->title }}
+                            <label for="">{{ $cat->title }}</label>
                             
                             @endforeach
 
-                            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+                        </div>
+
+                        
+
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 input-file" id="file_input" type="file" name="image">
+
+
                       </div>
-                        <button type="submit" class="btn mt-3 btn-primary">Update Post</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn-create">Update Post</button>
                       </form>
                     </div>
                   </div>

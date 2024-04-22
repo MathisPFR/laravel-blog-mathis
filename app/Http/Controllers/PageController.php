@@ -43,17 +43,17 @@ class PageController extends Controller
     }
 
 
-    public function welcome(): View
-    {
-        $categories = Category::all();
-        $post = Post::latest()->paginate(10);
-        return view('welcome', [
-            'posts' => $post,
-            'categories' => $categories,
+    // public function welcome(): View
+    // {
+    //     $categories = Category::all();
+    //     $post = Post::latest()->paginate(10);
+    //     return view('welcome', [
+    //         'posts' => $post,
+    //         'categories' => $categories,
             
-        ]);
+    //     ]);
 
-    }
+    // }
 
    
     public function index(Request $request)  
@@ -69,6 +69,7 @@ class PageController extends Controller
         }
 
         $posts = $query->get();
+        // $posts = Post::latest()->paginate(10);
         
         return view('welcome', compact('posts', 'categories'));
 

@@ -3,6 +3,46 @@
 @tailwind utilities;
 
 
+.all-filter {
+    margin-top: 20px;
+}
+
+.btn-submit {
+    margin-top: 15px;
+    background-color: #3B81F6!important;
+    
+}
+
+.btn-submit:hover {
+    background-color: #1C4ED8!important;
+}
+
+
+.filter {
+    color: white;
+    font-size: 1.4em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post-container-home {
+    background-color: none;
+    color: white;
+}
+
+.sumbit-btn-filter {
+   
+}
+
+.legals-btn {
+    text-align: end;
+    margin: 10px;
+}
+
+.btn-page {
+    text-align: end;
+}
+
 .post-container {
     background-color: white;
     border: solid black 2px;
@@ -30,6 +70,21 @@
     font-style: italic;
 }
 
+.post-one-title {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+}
+
+.post-one-des {
+    margin-bottom: 10px;
+}
+
+.post-one-content {
+    margin-bottom: 15px;
+}
+
+
+
 
 
 /* ALL FORM */
@@ -37,15 +92,16 @@
 
 .form-group {
     color: black;
+    margin: 10px;
     /* width: 30%; */
 }
 
 .form-control {
-    width: 300px;
+    width: 80%;
 }
 
 .form-area {
-    height: 400px;
+    height: 200px;
 }
 
 label {
@@ -63,8 +119,36 @@ label {
 
 .container-form {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    
 }
+
+.categorie-form {
+    
+}
+
+.input-file {
+   margin-bottom: 25px;
+   width: 80%;
+}
+
+.categories-label {
+    color: white;
+    font-size: 1.2em;
+}
+
+.btn-margin {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* POST CARD */
@@ -99,6 +183,20 @@ label {
     margin-bottom: 10px;
     font-style: italic;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

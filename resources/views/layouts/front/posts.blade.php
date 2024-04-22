@@ -1,32 +1,20 @@
-{{-- 
-        @foreach ($posts as $post)
+<div class="all-filter">
 
-        <div class="post-container">
-            <div class=" post post-title">
-                <a href="{{ route('post.byCategory', ['category' => $post->categorie]) }}">{{ $post->title }}</a>
-            </div>
-            <div class="post post-content">
-                {{ $post->contenu }}
-            </div>
-            <div class="post post-des">
-                {{ $post->description }}
-            </div>
-        </div>
-
-        @endforeach --}}
-
-        
-
+  <div class="filter">Filter :</div>
+  
             <form action="{{url('/')}}" method="GET">
                 @foreach ($categories as $categorie)
-                <div>
-                    <input type="checkbox" id="" name="categories[]" value="{{ $categorie->id }}" />
-                    <label for="">{{ $categorie->title }}</label>
-                  </div>
+
+                    <div class="flex items-center mb-4">
+                      <input id="default-checkbox" type="checkbox" name="categories[]" value="{{ $categorie->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ $categorie->title }}</label>
+                    </div>
+
                   @endforeach
-                  <button type="submit">Submit</button>
+                  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full btn-submit ">Submit</button>
             </form>
-        
+
+</div>
         
 
 
@@ -53,6 +41,7 @@
                         </div>
                       </div>
                     @endforeach 
+                    {{-- {{ $posts->links() }} --}}
 
     
   

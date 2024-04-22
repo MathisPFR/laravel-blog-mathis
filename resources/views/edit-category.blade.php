@@ -25,8 +25,9 @@
                             <input type="text" class="form-control" id="title" name="title"
                               value="{{ $categories->title }}" required>
                           </div>
+                        </div>
                             
-                          <button type="submit" class="btn mt-3 btn-primary">Update Post</button>
+                          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn-create">Update Post</button>
                         </form>
                       </div>
                     </div>
